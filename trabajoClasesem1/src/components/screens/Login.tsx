@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import CustomInput from "../CustomInput";
-import CustomButton from "../CustomButton";
+import CustomInput from "../components/CustomInput";
+import CustomButton from "../components/CustomButton";
 
 const [password, setPassword] = useState(""); // nuevo estado
 
