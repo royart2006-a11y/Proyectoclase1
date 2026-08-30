@@ -1,6 +1,7 @@
 import React from "react";
 import {createBottomTabNavigator}from"@react-navigation/bottom-tabs";
 import Profile from "../features/Profile";
+import Settings from "../features/Settings";
 
 export type tabsParamList={
     Profile: undefined,
@@ -12,7 +13,7 @@ export default function TabNavigator(){
     return(
         <Tab.Navigator>
             <Tab.Screen name='Profile' component={Profile}/>
-            <Tab.Screen name='Settings' component={}/>
+            <Tab.Screen name='Settings' component={Settings}/>
         </Tab.Navigator>
     );
 }
