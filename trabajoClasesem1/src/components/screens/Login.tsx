@@ -1,50 +1,46 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
 
-const [password, setPassword] = useState(""); // nuevo estado
-
-
-export default function Login ({navigation}:any ){
+export default function Login({navigation} : any) {
+  //definicion de variable en estado
   const [email, setEmail] = useState("");
 
-  const handleLogin = ()=>{
-    navigation.navigate('HomeScreen')
+ const [password, setPassword] = useState("");
+  //asignacion de nuevo valor a variable
+  // setEmail("maria@unitec.edu")
 
-    
+  const handleLogin = () => {
+    navigation.navigate('HomeScreen', {email,password});
   }
   return (
-
     <View style={styles.container}>
-      <Text>Ingrese su información</Text>
-      <CustomInput 
-        onChangeText={setEmail} 
-        value={email} 
-        placeholder={'Ingrese su correo'} 
-        type='email'     
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <CustomInput
+        onChangeText={setEmail}
+        value={email}
+        placeholder={"Ingresa tu email"}
+        type="email"
       />
-      <CustomInput 
-        onChangeText={setPassword}   //antes estaba setEmail
-        value={password}             // antes estaba email, que gran cambio.
-        placeholder={'Ingrese su contraseña'} 
-        type='password'     
+      <CustomInput
+        onChangeText={setPassword}
+        value={password}
+        placeholder={"Ingresa tu contraseña"}
+        type="password"
       />
-      <CustomButton 
-      title ="Ingresar" 
-    onPress={()=>{console.log("1")}}/>
-        
+      <CustomButton
+        title="Iniciar Sesion"
+        onPress={handleLogin}
+      />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-   
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

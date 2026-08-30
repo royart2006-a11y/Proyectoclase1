@@ -6,10 +6,12 @@ import Register from "../screens/Register";
 import Home from "../screens/Home";
 import TabNavigator from "./TbsNavigator";
 
+
 export type RootStackParamList = {
   Login: undefined,
   HomeScreen:{email:string},
   Register: undefined
+  UserTabs: undefined
 };
 
 // 2. crear el stack navigator encargado de manejar la navegación
@@ -22,7 +24,7 @@ export default function StackNavigator() {
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Register' component={Register} />
       <Stack.Screen name='HomeScreen' component={Home} />
-            <Stack.Screen name='HomeScreen' component={TabNavigator} />
+      <Stack.Screen name='UserTabs' component={TabNavigator} />
     </Stack.Navigator>
   )
 }
