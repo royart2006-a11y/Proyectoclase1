@@ -1,22 +1,45 @@
 import React from "react";
-import {createBottomTabNavigator}from"@react-navigation/bottom-tabs";
-import Profile from "../features/Profile";
-import Settings from "../features/Settings";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Image } from "react-native";
 
-export type tabsParamList={
+import Home from "../screens/Home";
+import Settings from "../features/Settings";
+import Profile from "../features/Profile";
+
+export type TabsParamList = {
     Profile: undefined,
-    Settings:undefined,
-    HomeTab:{email:string},
+    Settings: undefined,
+    HomeTab: {email: string},
 };
-const Tab= createBottomTabNavigator<tabsParamList>();
-export default function TabNavigator(){
-    return(
-        <Tab.Navigator>
-            <Tab.Screen name='Profile' component={Profile}/>
-            <Tab.Screen name='Settings' component={Settings}/>
+
+const Tab = createBottomTabNavigator<TabsParamList>();
+
+export default function TabsNavigator() {
+    return (
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ size }) => {
+                    let icon = require("../../../assets/profile.png");
+
+                    if (route.name === "Settings") {
+                        icon = require("../../../assets/settings.png");
+                    } else if (route.name === "HomeTab") {
+                        icon = require("../../../assets/home.png");
+                    }
+
+                    return (
+                        <Image
+                            source={icon}
+                            style={{ width: size, height: size }}
+                            resizeMode="contain"
+                        />
+                    );
+                },
+            })}
+        >
+            <Tab.Screen name="Profile" component={Profile} />
+            <Tab.Screen name="Settings" component={Settings} />
+            <Tab.Screen name="HomeTab" component={Home} initialParams={{ email: "usuario" }} />
         </Tab.Navigator>
     );
 }
-    // 1.Declarar el tipado de las pantallas con sus parametros
- //2Crear el tabs navigator encargado de manejar la navegacion
- // //3 Utilizar el navegador por tbs

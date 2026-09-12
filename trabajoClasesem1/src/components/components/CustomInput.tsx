@@ -13,8 +13,10 @@ export default function CustomInput({
   value,
   placeholder,
   type = "default",
+
+  
 }: CustomInputProps) {
-  const [isSecureText, setIsSecureText] = useState(type === "password");
+const [isSecureText, setIsSecureText] = useState(type === "password");
 const isPasswordField = type === "password";
 const iconName: (typeof MaterialIcons)["name"] | undefined =
  type === "password" ? "lock" :

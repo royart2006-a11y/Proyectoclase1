@@ -12,7 +12,7 @@ export default function Login({navigation} : any) {
   // setEmail("maria@unitec.edu")
 
   const handleLogin = () => {
-    navigation.navigate('HomeScreen', {email,password});
+    navigation.navigate('UserTabs', {screen:'HomeTab',params:{email}});
   }
   return (
     <View style={styles.container}>
